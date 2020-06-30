@@ -1,0 +1,45 @@
+.nav-top {
+  width: 100%;
+  height: $page-header-height;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__title {
+    padding-left: 30px;
+    font-size: $font-size-larger;
+    display: flex;
+    align-items: center;
+  }
+
+  &__user {
+    height: 100%;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .switch-lang {
+    margin-right: 20px;
+
+    .el-dropdown {
+      color: #eee !important;
+      font-size: $font-size-large;
+    }
+  }
+
+  .user_detail {
+    display: flex;
+    justify-content: space-between;
+
+    &_info {
+      margin-left: 10px;
+      line-height: 1.8;
+      color: #fff;
+    }
+  }
+}

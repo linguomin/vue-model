@@ -1,0 +1,15 @@
+import { RouteConfig } from 'vue-router';
+
+const route: RouteConfig[] = [
+  {
+    path: '/{{ pascalCase moduleName }}',
+    redirect: { name: '{{ kebabCase moduleName }}-{{ kebabCase pageName }}' },
+  },
+  {
+    path: '/{{ pascalCase moduleName }}/{{ kebabCase pageName }}',
+    name: '{{ kebabCase moduleName }}-{{ kebabCase pageName }}',
+    component: () => import('./pages/{{ pascalCase pageName }}/index.vue'),
+  },
+];
+
+export default route;
