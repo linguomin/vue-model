@@ -1,18 +1,17 @@
+const ApiGenerator = require('@/libs/apiGenerator');
 import axiosInstance from './axios/instance';
-const Utils = require('../libs/apiGenerator');
 
-const fetch = (
-  url: String,
-  method: String,
-  data = {
-    header: {},
-    path: {},
-    query: {},
-    body: {},
-  }
-) => {
-  axiosInstance(Utils.defaultAdapter(url, method, data));
-};
+const swaggerContext = require.context(
+  '@/../.swagger',
+  true,
+  /\.swagger\.json$/i
+);
+const apis = ApiGenerator.createAllAPI(swaggerContext);
+const fetch = ApiGenerator.createFetch(apis, axiosInstance);
+
+if (process.env.NODE_ENV === 'development') {
+  console.table(ApiGenerator.collectSwaggerInfo(swaggerContext));
+}
 
 /**
  * [Swagger Parameter Types]:
@@ -22,8 +21,7 @@ const fetch = (
  * - Header: header parameters, such as X-MyHeader: Value
  */
 export default fetch as (
-  url: String,
-  method: String,
+  operationId: string,
   data?: Partial<{
     path: object;
     body: any;

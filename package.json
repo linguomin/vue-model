@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "start": "npm run serve",
+    "start": "npm run sw2dts && npm run serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lint:style": "stylelint src/**/*.{vue,scss}",
     "test:unit": "vue-cli-service test:unit",
+    "sw2dts": "gulp sw2dts",
     "new": "plop"
   },
   "dependencies": {
@@ -40,13 +41,17 @@
     "@vue/cli-plugin-unit-jest": "^4.4.0",
     "@vue/cli-service": "^4.4.0",
     "@vue/test-utils": "^1.0.3",
+    "gulp": "^4.0.2",
+    "gulp-util": "^3.0.8",
     "lint-staged": "^10.2.11",
     "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
     "plop": "^2.7.1",
+    "require-context": "^1.1.0",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0",
+    "sw2dts": "^2.6.3",
     "terser-webpack-plugin": "^3.0.5",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
