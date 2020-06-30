@@ -18,6 +18,8 @@ import util from '@/utils';
 
 import moduleManager from '@/libs/moduleManager';
 
+import { sync } from 'vuex-router-sync';
+
 // global components
 import '@/components';
 
@@ -35,13 +37,23 @@ Vue.use(directives);
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router: moduleManager.getRouter(),
-  store: moduleManager.getStore(),
-  i18n,
-  render: (h) => h(App),
-  mounted() {
-    // show version tag in console
-    util.versionShow();
-  },
-}).$mount('#app');
+export default function createApp() {
+  // 创建 router 和 store 实例
+  const router = moduleManager.getRouter();
+  const store = moduleManager.getStore();
+
+  // 同步路由状态(route state)到 store
+  sync(store, router);
+
+  const app = new Vue({
+    router,
+    store,
+    i18n,
+    render: (h) => h(App),
+    mounted() {
+      // show version tag in console
+      util.versionShow();
+    },
+  });
+  return { app, router, store, i18n };
+}

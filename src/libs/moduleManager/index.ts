@@ -61,7 +61,7 @@ class ModuleManager {
    */
   private parseModuleRoute(module: CommonMeta): CommonMeta {
     const setMetaInfo = (routes: RouteConfig[]) => {
-      routes.forEach(r => {
+      routes.forEach((r) => {
         // put module name into each route.meta
         r.meta = r.meta || {};
         r.meta.moduleName = module.name;
@@ -89,7 +89,7 @@ class ModuleManager {
     }
 
     const modules = module.store.modules;
-    Object.keys(modules).forEach(key => {
+    Object.keys(modules).forEach((key) => {
       const curModule = modules[key];
       if (!isFunction(curModule.state)) {
         const temp = curModule.state;
@@ -108,7 +108,7 @@ class ModuleManager {
   private initRouter() {
     // register hooks
     const hooksFn = getAllRouterHooks();
-    hooksFn.forEach(fn => {
+    hooksFn.forEach((fn) => {
       const hook = fn.name;
       if (hook === 'beforeEach') {
         /**
@@ -124,7 +124,7 @@ class ModuleManager {
       }
     });
 
-    this.modules.forEach(m => {
+    this.modules.forEach((m) => {
       this.router.addRoutes(m.route);
     });
   }
@@ -168,7 +168,7 @@ class ModuleManager {
     if (!moduleName) {
       return;
     }
-    return this.modules.find(m => m.name === moduleName);
+    return this.modules.find((m) => m.name === moduleName);
   }
 
   /**
@@ -187,7 +187,7 @@ class ModuleManager {
 
     this.store.registerModule(module.name, { namespaced: true });
     // register nested modules
-    Object.keys(localModules).forEach(key => {
+    Object.keys(localModules).forEach((key) => {
       const storeName = key;
       const store = localModules[key];
 
@@ -214,7 +214,7 @@ class ModuleManager {
     this.cacheLocalStore(module);
     this.store.unregisterModule(module.name);
 
-    remove(this.registeredModule, n => n === module.name);
+    remove(this.registeredModule, (n) => n === module.name);
   }
 
   /**
@@ -222,7 +222,7 @@ class ModuleManager {
    * @param module {CommonMeta}
    */
   private moduleStoreExist(module: CommonMeta): boolean {
-    return this.registeredModule.find(n => n === module.name) !== undefined;
+    return this.registeredModule.find((n) => n === module.name) !== undefined;
   }
 
   /**
