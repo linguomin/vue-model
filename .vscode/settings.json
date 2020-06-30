@@ -1,0 +1,30 @@
+{
+  // 默认格式化程序
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  // prettier
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  // vetur
+  // "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatterOptions": {
+    // 需要和上面的prettier保持一致
+    "prettier": {
+      "jsxSingleQuote": true,
+      "singleQuote": true,
+      "trailingComma": "es5",
+      "tabWidth": 2,
+      "useTabs": false
+    }
+  },
+  "vetur.format.options.tabSize": 2,
+  "vetur.format.options.useTabs": false
+}
