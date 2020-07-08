@@ -42,3 +42,6 @@ npm run new page or yarn new page
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## 开发概要
+* 项目使用Vue CLI3构建，详细使用请参阅 [Vue CLI Guide](https://cli.vuejs.org/zh/guide/)
