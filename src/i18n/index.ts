@@ -2,12 +2,13 @@ import Vue from 'vue';
 import Element from 'element-ui';
 import VueI18n from 'vue-i18n';
 import messages from './lang';
-import cache from '@/utils/util.cache';
+// import cache from '@/utils/util.cache';
 
 Vue.use(VueI18n);
 
 const i18n = new VueI18n({
-  locale: cache.localGet('lang') || 'cn',
+  // locale: cache.localGet('lang') || 'cn',
+  locale: 'cn',
   messages,
 });
 

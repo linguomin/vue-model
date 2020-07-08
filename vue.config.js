@@ -12,19 +12,19 @@ const resolve = (dir) => require("path").join(__dirname, dir);
 const publicPath = "/";
 
 // proxy http
-// const http = "10.198.3.28:30108";
+const http = "10.198.3.28:30108";
 
 module.exports = {
   publicPath,
-  // devServer: {
-  //   proxy: {
-  //     "/": {
-  //       target: `http://${http}`,
-  //       changeOrigin: true,
-  //       ws: false,
-  //     },
-  //   },
-  // },
+  devServer: {
+    proxy: {
+      "/": {
+        target: `http://${http}`,
+        changeOrigin: true,
+        ws: false,
+      },
+    },
+  },
   outputDir: `dist/${env.RUN_ENV}`,
   lintOnSave: process.env.NODE_ENV !== "production",
   productionSourceMap: false,

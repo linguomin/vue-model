@@ -1,7 +1,8 @@
-import cache from '@/utils/util.cache';
+// import cache from '@/utils/util.cache';
 
 export const hasPermission = (code: string | string[]): boolean => {
-  const permissionCodes = cache.sessionGet('permissionCodes') || [];
+  // const permissionCodes = cache.sessionGet('permissionCodes') || [];
+  const permissionCodes = [];
   if (code === '' || code.length === 0) {
     return true;
   }
