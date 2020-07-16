@@ -7,22 +7,48 @@ const navigation: Navigation[] = [
     name: 'login.title',
     icon: 'el-icon-s-home',
     route: {
-      path: '/Demo',
+      path: '/Demo/demo',
       meta: {
         module: 'Demo',
         permissionCode: ['TEST'],
       },
-      children: [
-        {
-          name: '样例列表',
-          path: 'Demo',
+    },
+  },
+  {
+    name: 'login.title',
+    icon: 'el-icon-s-home',
+    route: {
+      path: '/Demo/demo',
+      meta: {
+        module: 'Demo',
+        permissionCode: ['TEST'],
+      },
+    },
+    children: [
+      {
+        name: 'login.title',
+        icon: 'el-icon-s-home',
+        route: {
+          path: '/Demo/demo',
           meta: {
             module: 'Demo',
             permissionCode: ['TEST'],
           },
         },
-      ],
-    },
+        children: [
+          {
+            name: 'login.title',
+            route: {
+              path: '/Demo/demo/list',
+              meta: {
+                module: 'Demo',
+                permissionCode: ['TEST'],
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
 ];
 

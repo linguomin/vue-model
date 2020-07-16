@@ -1613,6 +1613,10 @@ declare namespace Model.Spring {
          */
         dataId?: string;
         /**
+         * 文本识别内容
+         */
+        detectionContent?: string;
+        /**
          * 标注信息
          */
         label?: string;
@@ -1849,9 +1853,17 @@ declare namespace Model.Spring {
      */
     export interface LabelUsageResponse {
         /**
+         * ocr评测集
+         */
+        testOcr?: OcrDataNumInfo;
+        /**
          * 测试集标签使用情况
          */
         testSetUsage?: LabelUsage[];
+        /**
+         * ocr训练集
+         */
+        trainingOcr?: OcrDataNumInfo;
         /**
          * 训练集标签使用情况
          */
@@ -2337,6 +2349,19 @@ declare namespace Model.Spring {
         user_name?: string;
         version?: string;
         visibility?: string;
+    }
+    /**
+     * OcrDataNumInfo
+     */
+    export interface OcrDataNumInfo {
+        /**
+         * 图片数量
+         */
+        imageNum?: number; // int64
+        /**
+         * 检测框数量
+         */
+        labelNum?: number; // int64
     }
     /**
      * PageResponseOfGroupResponse
