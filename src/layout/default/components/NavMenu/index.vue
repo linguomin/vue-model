@@ -8,8 +8,8 @@
       :collapse="isCollapse"
       text-color="#fff"
     >
-      <MenuItem :navigation="navigation">
-      </MenuItem>
+      <menu-item :navigation="navigation">
+      </menu-item>
       <div
         class="fold"
         @click="isCollapse = !isCollapse"
@@ -23,14 +23,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
-import MenuItem from '../MenuItem/index.vue';
 import navigation from '@/navigation';
 
-@Component({
-  components: {
-    MenuItem,
-  },
-})
+@Component
 export default class NavMenu extends Vue {
   navigation = navigation; // 菜单栏
 
