@@ -12,7 +12,7 @@ const resolve = (dir) => require("path").join(__dirname, dir);
 const publicPath = "/";
 
 // proxy http
-const http = "10.198.3.28:30108";
+const http = "127.0.0.1:30108";
 
 module.exports = {
   publicPath,
